@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-deployment
-spec: 
+spec:
   replicas: 2
   selector:
     matchLabels:
@@ -11,15 +11,15 @@ spec:
     metadata:
       labels:
         app: simple
-    spec: 
+    spec:
       containers:
         - name: simple-todo
-          image: mohammedayad10/node-simple:latest
+          image: mohammedayad10/node-todo:latest
           ports:
             - containerPort: 3000
-          env: 
+          env:
             - name: PORT
-              valueFrom: 
+              valueFrom:
                 configMapKeyRef:
                   name: node-credentials
                   key: port
@@ -30,7 +30,6 @@ spec:
                   key: mongodb_url
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -38,7 +37,7 @@ metadata:
 spec:
   selector:
     app: simple
-  ports: 
+  ports:
     - name: node-cluster
       protocol: TCP
       port: 3000
