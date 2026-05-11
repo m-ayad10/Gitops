@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: simple-todo
-          image: mohammedayad10/node-todo:latest
+          image: mohammedayad10/node-todo:f59d454bdf6d0ae02f0b172ad12a2dc5d53f7055
           ports:
             - containerPort: 3000
           env:
