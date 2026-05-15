@@ -1,3 +1,4 @@
-secret-ws.yaml
-secret-http.yaml
-secret-notification.yaml
+secret-ws.yml
+secret-http.yml
+secret-notification.yml
+secret.yaml

@@ -31,13 +31,13 @@ spec:
           - name: UPSTASH_REDIS_REST_URL
             valueFrom:
               secretKeyRef:
-                name: backend-secret
+                name: ws-secret
                 key: UPSTASH_REDIS_REST_URL
 
           - name: UPSTASH_REDIS_REST_TOKEN
             valueFrom:
               secretKeyRef:
-                name: backend-secret
+                name: ws-secret
                 key: UPSTASH_REDIS_REST_TOKEN
 
 ---
