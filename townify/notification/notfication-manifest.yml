@@ -18,22 +18,23 @@ spec:
     metadata:
       labels:
         app: townify-notification
-    containers:
-      - name: notification-server
-        image: mohammedayad10/townify-notification:latest
-        ports:
-          - containerPort: 3010
-        resources:
-          request:
-            cpu: "1000m"
-          limit:
-            cpu: "1000m"
-        env:
-          - name: REDIS_PUBSUB_URL
-            valueFrom:
-              secretKeyRef:
-                name: backend-secret
-                key: REDIS_PUBSUB_URL
+    spec:
+      containers:
+        - name: notification-server
+          image: mohammedayad10/townify-notification:latest
+          ports:
+            - containerPort: 3010
+          resources:
+            request:
+              cpu: "1000m"
+            limit:
+              cpu: "1000m"
+          env:
+            - name: REDIS_PUBSUB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: REDIS_PUBSUB_URL
 
 ---
 apiVersion: v1

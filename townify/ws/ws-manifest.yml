@@ -17,28 +17,29 @@ spec:
     metadata:
       labels:
         app: ws-server
-    containers:
-      - name: ws-server
-        image: mohammedayad10/townify-ws:latest
-        ports:
-          - containerPort: 3008
-        resources:
-          request:
-            cpu: "1000m"
-          limit:
-            cpu: "1000m"
-        env:
-          - name: UPSTASH_REDIS_REST_URL
-            valueFrom:
-              secretKeyRef:
-                name: ws-secret
-                key: UPSTASH_REDIS_REST_URL
+    spec:
+      containers:
+        - name: ws-server
+          image: mohammedayad10/townify-ws:latest
+          ports:
+            - containerPort: 3008
+          resources:
+            request:
+              cpu: "1000m"
+            limit:
+              cpu: "1000m"
+          env:
+            - name: UPSTASH_REDIS_REST_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ws-secret
+                  key: UPSTASH_REDIS_REST_URL
 
-          - name: UPSTASH_REDIS_REST_TOKEN
-            valueFrom:
-              secretKeyRef:
-                name: ws-secret
-                key: UPSTASH_REDIS_REST_TOKEN
+            - name: UPSTASH_REDIS_REST_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: ws-secret
+                  key: UPSTASH_REDIS_REST_TOKEN
 
 ---
 apiVersion: v1
