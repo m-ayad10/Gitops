@@ -21,6 +21,7 @@ spec:
       containers:
         - name: ws-server
           image: mohammedayad10/townify-ws:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3008
           resources:
