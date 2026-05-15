@@ -46,6 +46,7 @@ apiVersion: apps/v1
 kind: Service
 metadata:
   name: ws-service
+  namespace: ws
 spec:
   selector:
     app: ws-server
